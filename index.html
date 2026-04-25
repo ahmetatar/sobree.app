@@ -3,30 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sobree | Terms of Use & Privacy Policy</title>
+  <title>Sobree - Sobriety Tracker | Terms of Use & Privacy Policy</title>
   <meta
     name="description"
-    content="Official Terms of Use and Privacy Policy for sobree."
+    content="Terms of Use and Privacy Policy for Sobree - Sobriety Tracker."
   >
   <style>
     :root {
       color-scheme: dark;
-      --bg: #071116;
-      --bg-soft: #0b1820;
-      --panel: rgba(11, 24, 32, 0.78);
-      --panel-strong: rgba(16, 33, 42, 0.92);
-      --line: rgba(149, 227, 217, 0.18);
-      --line-strong: rgba(149, 227, 217, 0.34);
-      --text: #e8f7f5;
-      --muted: #9cb9b5;
-      --accent: #8ce9dc;
-      --accent-2: #4dc8bb;
-      --warning: #ffd7a6;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --max: 1180px;
+      --background: #06090f;
+      --background-elevated: #0c1018;
+      --surface: rgba(20, 27, 43, 0.72);
+      --surface-strong: rgba(20, 27, 43, 0.88);
+      --primary: #00e5bf;
+      --primary-dark: #00c4a3;
+      --primary-muted: rgba(13, 43, 38, 0.68);
+      --secondary: #7c5cfc;
+      --secondary-muted: rgba(124, 92, 252, 0.14);
+      --text: #e8eaf0;
+      --text-secondary: #7a7f96;
+      --border: rgba(37, 48, 80, 0.92);
+      --border-bright: rgba(232, 234, 240, 0.1);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      --glow-primary: 0 0 48px rgba(0, 229, 191, 0.18);
+      --glow-secondary: 0 0 44px rgba(124, 92, 252, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-pill: 999px;
+      --max-width: 1200px;
     }
 
     * {
@@ -39,36 +44,59 @@
 
     body {
       margin: 0;
-      font-family: "SF Pro Display", "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(77, 200, 187, 0.18), transparent 32%),
-        radial-gradient(circle at top right, rgba(140, 233, 220, 0.12), transparent 24%),
-        linear-gradient(180deg, #071116 0%, #08161c 44%, #051015 100%);
-      color: var(--text);
       min-height: 100vh;
-      line-height: 1.65;
+      font-family: "SF Pro Text", "SF Pro Display", "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0, 229, 191, 0.18), transparent 28%),
+        radial-gradient(circle at 100% 10%, rgba(124, 92, 252, 0.16), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(0, 229, 191, 0.08), transparent 28%),
+        linear-gradient(180deg, #06090f 0%, #0a0f18 38%, #06090f 100%);
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: radial-gradient(circle at center, black 48%, transparent 92%);
+      opacity: 0.2;
     }
 
     a {
-      color: var(--accent);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: #7af2dd;
     }
 
     .shell {
-      width: min(calc(100% - 32px), var(--max));
+      width: min(calc(100% - 32px), var(--max-width));
       margin: 0 auto;
       padding: 24px 0 72px;
+      position: relative;
+      z-index: 1;
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
       padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(7, 17, 22, 0.58);
-      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      background: rgba(12, 16, 24, 0.72);
+      backdrop-filter: blur(20px);
       position: sticky;
       top: 18px;
       z-index: 10;
@@ -78,18 +106,40 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      gap: 14px;
+      min-width: 0;
     }
 
     .brand-mark {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
       background:
-        radial-gradient(circle at 35% 35%, #b8fff6 0%, #8ce9dc 45%, #3d9f95 100%);
-      box-shadow: 0 0 30px rgba(140, 233, 220, 0.55);
+        radial-gradient(circle at 35% 35%, #e4fffb 0%, var(--primary) 48%, var(--primary-dark) 100%);
+      box-shadow: var(--glow-primary);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-kicker {
+      display: block;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav {
@@ -99,83 +149,120 @@
     }
 
     .nav a {
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 999px;
-      color: var(--muted);
+      padding: 9px 14px;
+      border-radius: var(--radius-pill);
       border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      transition: 160ms ease;
     }
 
     .nav a:hover,
     .nav a:focus-visible {
+      border-color: var(--border-bright);
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text);
-      border-color: var(--line);
-      background: rgba(140, 233, 220, 0.08);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
       gap: 24px;
-      padding: 44px 0 28px;
+      padding: 38px 0 30px;
       align-items: stretch;
     }
 
-    .hero-card,
-    .panel {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      backdrop-filter: blur(18px);
+    .glass {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
       border-radius: var(--radius-xl);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01)),
+        var(--surface);
+      backdrop-filter: blur(24px);
       box-shadow: var(--shadow);
     }
 
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      pointer-events: none;
+    }
+
     .hero-card {
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
+      padding: 38px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(124, 92, 252, 0.16), transparent 22%),
+        radial-gradient(circle at 18% 0%, rgba(0, 229, 191, 0.16), transparent 26%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
+        var(--surface-strong);
     }
 
     .hero-card::after {
       content: "";
       position: absolute;
-      inset: auto -12% -24% auto;
-      width: 320px;
-      height: 320px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(140, 233, 220, 0.18), transparent 68%);
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      bottom: -170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 229, 191, 0.16), transparent 68%);
+      filter: blur(4px);
       pointer-events: none;
     }
 
-    .eyebrow {
+    .hero-eyebrow {
       display: inline-flex;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(140, 233, 220, 0.08);
-      color: var(--accent);
-      font-size: 0.9rem;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 229, 191, 0.22);
+      background: var(--primary-muted);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 18px rgba(0, 229, 191, 0.4);
     }
 
     h1,
     h2,
     h3 {
       margin: 0;
-      line-height: 1.1;
+      line-height: 1.08;
       letter-spacing: -0.03em;
+      font-family: "SF Pro Rounded", "SF Pro Display", "Segoe UI", sans-serif;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 4.8rem);
-      margin-top: 18px;
-      max-width: 12ch;
+      font-size: clamp(3rem, 6.3vw, 5.4rem);
+      max-width: 11ch;
+      margin-top: 22px;
     }
 
     .hero-copy {
-      max-width: 60ch;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 1.06rem;
+      margin: 20px 0 0;
+      max-width: 56ch;
+      color: var(--text-secondary);
+      font-size: 1.08rem;
     }
 
     .hero-meta {
@@ -186,76 +273,121 @@
     }
 
     .meta-pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.02);
+      padding: 11px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .stat-label {
+      display: block;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
     }
 
     .hero-side {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
-    .panel {
-      padding: 24px;
+    .side-card {
+      padding: 26px;
     }
 
-    .panel h2 {
-      font-size: 1.25rem;
+    .side-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
     }
 
-    .panel p,
-    .panel li {
-      color: var(--muted);
+    .side-card p,
+    .side-card li {
+      color: var(--text-secondary);
     }
 
-    .panel ul {
-      margin: 14px 0 0;
+    .side-card ul {
+      margin: 0;
       padding-left: 18px;
     }
 
-    .grid {
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(124, 92, 252, 0.18);
+      background: var(--secondary-muted);
+      color: #c4b8ff;
+      font-size: 0.88rem;
+      box-shadow: var(--glow-secondary);
+    }
+
+    .section-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: minmax(0, 1fr) 330px;
       gap: 24px;
-      margin-top: 18px;
+      margin-top: 8px;
     }
 
     .content {
-      grid-column: span 8;
       display: grid;
       gap: 24px;
-    }
-
-    .aside {
-      grid-column: span 4;
-      display: grid;
-      gap: 24px;
-      align-self: start;
-      position: sticky;
-      top: 110px;
     }
 
     .section {
-      padding: 30px;
+      padding: 30px 32px;
     }
 
     .section h2 {
-      font-size: clamp(1.55rem, 3vw, 2rem);
-      margin-bottom: 10px;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      margin-bottom: 12px;
     }
 
     .section h3 {
-      font-size: 1.05rem;
-      margin-top: 24px;
+      font-size: 1.08rem;
+      margin-top: 28px;
+      margin-bottom: 10px;
     }
 
     .section p,
     .section li {
-      color: var(--muted);
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .section p + p {
+      margin-top: 14px;
     }
 
     .section ul {
@@ -263,92 +395,128 @@
       padding-left: 20px;
     }
 
-    .callout {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 215, 166, 0.2);
-      background: rgba(255, 215, 166, 0.08);
-      color: #ffe8c7;
+    .section li + li {
+      margin-top: 8px;
     }
 
-    .mini-list {
+    .section-intro {
+      color: var(--text);
+      max-width: 64ch;
+      font-size: 1.02rem;
+    }
+
+    .aside {
+      display: grid;
+      gap: 24px;
+      align-self: start;
+      position: sticky;
+      top: 108px;
+    }
+
+    .profile-card {
+      padding: 24px;
+      background:
+        radial-gradient(circle at top right, rgba(0, 229, 191, 0.14), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(124, 92, 252, 0.14), transparent 32%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
+        var(--surface-strong);
+    }
+
+    .profile-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .profile-list {
       display: grid;
       gap: 12px;
-      margin-top: 14px;
     }
 
-    .mini-item {
+    .profile-item {
       padding: 14px 16px;
-      border: 1px solid var(--line);
       border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    .mini-item strong {
+    .profile-item strong {
       display: block;
-      margin-bottom: 4px;
       color: var(--text);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .profile-item span,
+    .profile-item a {
+      color: var(--text-secondary);
+      word-break: break-word;
+    }
+
+    .notice {
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0, 229, 191, 0.16);
+      background: rgba(13, 43, 38, 0.48);
+      color: #b7f8ed;
+      font-size: 0.95rem;
     }
 
     footer {
-      margin-top: 32px;
-      padding: 26px 30px;
-      border: 1px solid var(--line);
+      margin-top: 28px;
+      padding: 24px 28px;
+      border: 1px solid var(--border);
       border-radius: var(--radius-xl);
-      background: rgba(4, 12, 16, 0.72);
-      color: var(--muted);
+      background: rgba(12, 16, 24, 0.72);
+      color: var(--text-secondary);
       box-shadow: var(--shadow);
     }
 
-    code {
-      font-family: "SF Mono", "Roboto Mono", monospace;
-      font-size: 0.95em;
-      padding: 0.15rem 0.38rem;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 8px;
+    footer strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 8px;
+      font-family: "SF Pro Rounded", "SF Pro Display", "Segoe UI", sans-serif;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1040px) {
       .hero,
-      .grid {
+      .section-grid {
         grid-template-columns: 1fr;
-      }
-
-      .content,
-      .aside {
-        grid-column: auto;
       }
 
       .aside {
         position: static;
       }
-
-      .topbar {
-        border-radius: 24px;
-        align-items: flex-start;
-      }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       .shell {
-        width: min(calc(100% - 20px), var(--max));
-        padding-top: 14px;
+        width: min(calc(100% - 20px), var(--max-width));
+        padding-top: 16px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
       }
 
       .hero-card,
-      .panel,
+      .side-card,
       .section,
+      .profile-card,
       footer {
         padding: 22px;
       }
 
-      .topbar {
-        padding: 14px;
+      .hero-bottom {
+        grid-template-columns: 1fr;
       }
 
-      .nav {
-        gap: 8px;
+      h1 {
+        font-size: clamp(2.5rem, 13vw, 4rem);
       }
     }
   </style>
@@ -358,7 +526,10 @@
     <header class="topbar">
       <div class="brand">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span>sobree legal</span>
+        <div class="brand-text">
+          <span class="brand-kicker">Official legal page</span>
+          <span class="brand-title">Sobree - Sobriety Tracker</span>
+        </div>
       </div>
       <nav class="nav" aria-label="Section navigation">
         <a href="#overview">Overview</a>
@@ -369,306 +540,313 @@
     </header>
 
     <section class="hero">
-      <div class="hero-card">
-        <span class="eyebrow">Official legal information</span>
-        <h1>Terms of Use & Privacy Policy</h1>
-        <p class="hero-copy">
-          This page describes how <strong>sobree</strong> handles user data and the
-          basic rules that apply when using the app and related services.
-        </p>
-        <div class="hero-meta">
-          <span class="meta-pill">Effective date: April 25, 2026</span>
-          <span class="meta-pill">Applies to iPhone app, widgets, and related site</span>
+      <article class="glass hero-card">
+        <div>
+          <div class="hero-eyebrow">
+            <span class="hero-dot" aria-hidden="true"></span>
+            Privacy-first by design
+          </div>
+          <h1>Terms of Use &amp; Privacy Policy</h1>
+          <p class="hero-copy">
+            This page explains how Sobree - Sobriety Tracker handles information,
+            what rights and choices users have, and the terms that apply when using
+            the app and related services.
+          </p>
+          <div class="hero-meta">
+            <span class="meta-pill">Effective date: April 25, 2026</span>
+            <span class="meta-pill">Applies to the iPhone app and widgets</span>
+          </div>
         </div>
-      </div>
+
+        <div class="hero-bottom" aria-label="Key principles">
+          <div class="stat">
+            <span class="stat-label">Principle</span>
+            <span class="stat-value">Private personal tracking</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Storage model</span>
+            <span class="stat-value">On-device with optional Apple sync</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Integrations</span>
+            <span class="stat-value">Health, widgets, notifications, subscriptions</span>
+          </div>
+        </div>
+      </article>
 
       <div class="hero-side">
-        <section class="panel">
-          <h2>Quick summary</h2>
-          <ul>
-            <li>sobree is designed as a private personal tracking app.</li>
-            <li>No advertising SDKs or third-party analytics tools are intended to be used.</li>
-            <li>Some data may be stored locally on-device and, if enabled, synced through Apple services tied to your iCloud account.</li>
-            <li>Optional Apple Health access is only used if you explicitly grant permission.</li>
-          </ul>
+        <section class="glass side-card">
+          <h2>What Sobree is built for</h2>
+          <p>
+            Sobree is a private companion for people who want to track progress,
+            reflect on habits, and build a more intentional relationship with
+            sobriety and wellness.
+          </p>
+          <div class="chip-row" aria-label="Feature categories">
+            <span class="chip">Offline-first</span>
+            <span class="chip">Private journaling</span>
+            <span class="chip">Optional Health data</span>
+            <span class="chip">iCloud sync</span>
+          </div>
         </section>
 
-        <section class="panel">
-          <h2>Before you publish</h2>
+        <section class="glass side-card">
+          <h2>At a glance</h2>
           <ul>
-            <li>Replace the contact placeholders on this page.</li>
-            <li>Make sure App Store Connect privacy answers match the app exactly.</li>
-            <li>If you want a custom EULA in App Store, add it separately in App Store Connect.</li>
+            <li>Core app content is information users choose to enter themselves.</li>
+            <li>Optional Apple Health access is used only with permission.</li>
+            <li>Subscription handling is managed through Apple systems.</li>
+            <li>We do not state any sale of personal information.</li>
           </ul>
         </section>
       </div>
     </section>
 
-    <div class="grid">
+    <div class="section-grid">
       <main class="content">
-        <section class="panel section" id="overview">
+        <section class="glass section" id="overview">
           <h2>Overview</h2>
-          <p>
-            This page is provided by the developer of sobree. sobree is a personal
-            habit, sobriety, wellness, and reflection app that may include features
-            such as progress tracking, journaling, notifications, widgets, optional
-            Apple Health integration, and optional premium subscriptions.
+          <p class="section-intro">
+            These Terms of Use and Privacy Policy apply to Sobree - Sobriety Tracker,
+            developed by Ahmet Atar. By accessing or using the app, users acknowledge
+            this page and the conditions described here.
           </p>
           <p>
-            If any localized version of this page conflicts with the English version,
-            the English version controls unless local law requires otherwise.
+            Sobree may include progress tracking, journaling, reminders, widgets,
+            optional premium features, and optional integrations with Apple platform
+            services. If a specific feature is not enabled or not available on a
+            device, the related data practices may not apply in that situation.
           </p>
-          <div class="callout">
-            This document is a practical product-policy draft, not legal advice. If
-            you plan to sell broadly or collect sensitive data at scale, have a lawyer
-            review it before launch.
-          </div>
         </section>
 
-        <section class="panel section" id="privacy">
+        <section class="glass section" id="privacy">
           <h2>Privacy Policy</h2>
-          <p>
-            We aim to collect only the information reasonably necessary to operate the
-            app, provide features you request, maintain your purchases, and improve
-            reliability and safety.
+          <p class="section-intro">
+            Sobree is designed to support a personal and sensitive journey. For that
+            reason, the app is intended to collect and process only the information
+            reasonably needed to provide its features, maintain reliability, and
+            support user-requested functionality.
           </p>
 
-          <h3>1. Information you may provide</h3>
+          <h3>1. Information users may provide</h3>
           <ul>
-            <li>App content you enter, such as tracker details, check-ins, reflections, journal entries, milestones, settings, and similar wellness-related records.</li>
-            <li>Optional information you choose to connect from Apple Health, if you grant HealthKit permission.</li>
-            <li>Support messages or emails you send directly to us.</li>
+            <li>Tracker details, milestones, check-ins, reflections, journal entries, settings, and similar content entered in the app.</li>
+            <li>Support messages or emails sent directly to the developer.</li>
+            <li>Optional wellness-related information made available through Apple Health, if permission is granted.</li>
           </ul>
 
-          <h3>2. Information generated through use of the app</h3>
+          <h3>2. Information generated through app use</h3>
           <ul>
-            <li>Purchase and subscription status provided through Apple&apos;s StoreKit systems.</li>
-            <li>Basic technical or sync-related state needed for local storage, iCloud synchronization, widgets, notifications, or account recovery flows.</li>
-            <li>Diagnostic information made available through Apple platforms if needed to investigate crashes, sync failures, abuse, or security issues.</li>
+            <li>Purchase, subscription, and entitlement status made available through Apple StoreKit systems.</li>
+            <li>Technical and sync-related state needed for local storage, widgets, reminders, notifications, and cross-device continuity.</li>
+            <li>Limited diagnostic information that may be necessary to investigate crashes, sync issues, abuse, fraud, or security concerns.</li>
           </ul>
 
-          <h3>3. How information is used</h3>
+          <h3>3. How information may be used</h3>
           <ul>
-            <li>To provide the app&apos;s core features.</li>
-            <li>To store your records on-device and, when applicable, sync them across your Apple devices.</li>
-            <li>To enable widgets, reminders, and personalized in-app experiences.</li>
-            <li>To verify purchases, restore premium access, and manage subscription-related access.</li>
-            <li>To maintain app security, fix bugs, and respond to support requests.</li>
+            <li>To provide and maintain core app functionality.</li>
+            <li>To save content on-device and, where applicable, sync data across Apple devices.</li>
+            <li>To power widgets, notifications, personalization, and feature continuity.</li>
+            <li>To verify premium access, restore purchases, and manage subscription-related features.</li>
+            <li>To improve reliability, security, and support operations.</li>
           </ul>
 
           <h3>4. Health data</h3>
           <p>
-            If sobree requests access to Apple Health, that access is optional. Health
-            information is only accessed after you grant permission through Apple&apos;s
-            authorization flow. If permission is denied or later revoked, related
-            features may become limited or unavailable.
+            If Sobree requests access to Apple Health, that access is optional and
+            controlled through Apple&apos;s permission flow. Health-related information is
+            only accessed if a user explicitly authorizes it. If permission is denied
+            or later revoked, related features may become limited or unavailable.
           </p>
           <p>
-            We do not use health information for advertising. Health information is
-            used only to support app features you choose to enable.
+            Health-related information is intended to support user-facing app features
+            and is not described on this page as being used for advertising purposes.
           </p>
 
-          <h3>5. iCloud and Apple services</h3>
+          <h3>5. Apple services and device features</h3>
           <p>
-            sobree may rely on Apple-provided services such as CloudKit, iCloud,
-            StoreKit, WidgetKit, UserNotifications, and HealthKit. When sync is
-            enabled, app data may be transmitted to and stored within Apple&apos;s systems
-            in connection with your Apple account and device environment.
+            Sobree may rely on Apple-provided services and frameworks such as CloudKit,
+            iCloud, HealthKit, WidgetKit, UserNotifications, and StoreKit. When sync
+            or similar platform features are enabled, relevant data may be transmitted
+            to and stored within Apple-managed systems associated with the user&apos;s
+            Apple account and device environment.
           </p>
 
           <h3>6. Sharing of information</h3>
           <p>
-            We do not sell your personal information. We do not intend to share your
-            app content with advertising networks or unrelated third parties.
+            Sobree does not describe any sale of personal information. App content is
+            not intended to be shared with advertising networks or unrelated third
+            parties as part of normal use of the app.
           </p>
           <p>
-            Information may be disclosed only when reasonably necessary to:
+            Information may be disclosed only when reasonably necessary to operate the
+            services a user chooses to use, comply with law, respond to valid legal
+            process, investigate misuse, or protect the rights, safety, and security
+            of users, the developer, or others.
           </p>
-          <ul>
-            <li>operate Apple platform services used by the app;</li>
-            <li>comply with law, regulation, or valid legal process;</li>
-            <li>detect, prevent, or address fraud, abuse, security, or technical issues;</li>
-            <li>protect the rights, safety, or property of users, the developer, or others.</li>
-          </ul>
 
           <h3>7. Data retention</h3>
           <p>
-            Data is generally retained for as long as needed to provide the app and
-            related features, comply with legal obligations, resolve disputes, or
-            enforce agreements. Retention may vary depending on whether data is stored
-            only locally on your device, synchronized through your personal iCloud
-            environment, or included in support communications.
+            Information may be retained for as long as reasonably necessary to provide
+            the app, support requested features, comply with legal obligations,
+            resolve disputes, and enforce applicable agreements. Retention periods may
+            differ depending on whether information is stored only on-device, synced
+            through Apple services, or contained in direct support correspondence.
           </p>
 
-          <h3>8. Your choices</h3>
+          <h3>8. User choices and requests</h3>
           <ul>
-            <li>You can choose whether to grant permissions such as notifications or Apple Health access.</li>
-            <li>You can stop using sync-related features by disabling the relevant Apple account or app settings where available.</li>
-            <li>You can delete app content from within the app where deletion tools are provided, or by removing the app and related local data from your device.</li>
-            <li>You can contact us to request deletion of support correspondence or other data we directly control, subject to legal or operational limits.</li>
+            <li>Users can choose whether to grant permissions such as notifications and Apple Health access.</li>
+            <li>Users can manage Apple account and device settings that affect sync, notifications, or health permissions.</li>
+            <li>Users can remove app content from the app where deletion tools are available, or by deleting the app and related local data from their device.</li>
+            <li>Requests relating to privacy or support can be sent to the contact address listed on this page.</li>
           </ul>
 
           <h3>9. Children</h3>
           <p>
-            sobree is not intended for children under the age required by applicable
-            law to consent to data processing in their region unless explicitly stated
-            otherwise on the App Store listing.
+            Sobree is not intended for children under the minimum age required by
+            applicable law to provide valid consent in their jurisdiction, unless the
+            App Store listing clearly states otherwise.
           </p>
 
-          <h3>10. International users</h3>
+          <h3>10. International use</h3>
           <p>
-            If you use the app outside the developer&apos;s home country, your information
-            may be processed in other countries depending on Apple infrastructure,
-            hosting, support tools, or your own account configuration.
+            Depending on location, device settings, and Apple infrastructure,
+            information may be processed or stored in countries other than the one
+            where a user resides.
           </p>
 
           <h3>11. Changes to this policy</h3>
           <p>
-            We may update this Privacy Policy from time to time. The revised version
-            will be posted on this page with a new effective date.
+            This Privacy Policy may be updated from time to time. The updated version
+            will be posted on this page with a revised effective date when applicable.
           </p>
         </section>
 
-        <section class="panel section" id="terms">
+        <section class="glass section" id="terms">
           <h2>Terms of Use</h2>
-          <p>
-            By downloading, accessing, or using sobree, you agree to these Terms of
-            Use. If you do not agree, do not use the app.
+          <p class="section-intro">
+            By downloading, accessing, or using Sobree - Sobriety Tracker, users agree
+            to these Terms of Use. If a user does not agree, the app should not be
+            used.
           </p>
 
           <h3>1. License</h3>
           <p>
-            Subject to these terms and any applicable App Store rules, you are granted
-            a limited, non-exclusive, non-transferable, revocable license to use
-            sobree for personal, non-commercial use.
+            Subject to these terms and any applicable App Store rules, users are
+            granted a limited, non-exclusive, non-transferable, revocable license to
+            use Sobree for personal, non-commercial use.
           </p>
 
           <h3>2. Acceptable use</h3>
           <ul>
-            <li>Do not misuse, interfere with, reverse engineer, or attempt unauthorized access to the app or related systems except where that restriction is not permitted by law.</li>
-            <li>Do not use the app in a way that violates applicable law or infringes the rights of others.</li>
-            <li>Do not upload or transmit malicious code, abusive content, or fraudulent information through the app.</li>
+            <li>Users may not misuse, interfere with, or attempt unauthorized access to the app or related systems, except where such restriction is not permitted by law.</li>
+            <li>Users may not use the app in a manner that violates applicable law or infringes the rights of others.</li>
+            <li>Users may not transmit malicious code, fraudulent information, or abusive material through the app.</li>
           </ul>
 
           <h3>3. Wellness information only</h3>
           <p>
-            sobree is intended for informational, motivational, journaling, and
+            Sobree is provided for informational, journaling, motivational, and
             personal wellness purposes only. It is not medical advice, mental health
             treatment, diagnosis, emergency response, or a substitute for professional
-            care. If you are in crisis or need urgent help, contact qualified local
-            emergency or health services immediately.
+            care. Anyone in crisis or in need of urgent assistance should contact
+            qualified emergency or health services in their area immediately.
           </p>
 
           <h3>4. Premium features and subscriptions</h3>
           <p>
             Some features may require a paid subscription or other in-app purchase.
             Billing, renewals, cancellations, refunds, and payment processing are
-            handled by Apple under your App Store account terms and policies unless
-            otherwise clearly stated.
+            handled by Apple under the user&apos;s App Store account terms and policies,
+            unless otherwise stated in the app.
           </p>
 
-          <h3>5. Availability</h3>
+          <h3>5. Availability and changes</h3>
           <p>
-            We may add, change, limit, suspend, or remove features at any time. We do
-            not guarantee uninterrupted availability of the app, sync, widgets,
-            notifications, Apple integrations, or premium features.
+            Features may be added, changed, limited, suspended, or removed over time.
+            Sobree does not guarantee uninterrupted availability of the app, widgets,
+            sync, notifications, or any particular feature set.
           </p>
 
           <h3>6. Intellectual property</h3>
           <p>
             The app, branding, design, text, graphics, and related materials are owned
-            by or licensed to the developer, except for third-party content and Apple
-            platform materials that remain owned by their respective holders.
+            by or licensed to Ahmet Atar, except for third-party materials and Apple
+            platform assets that remain the property of their respective owners.
           </p>
 
           <h3>7. Termination</h3>
           <p>
-            We may suspend or terminate access to the app or certain features if we
-            reasonably believe these terms are violated, if operation becomes unsafe or
-            unlawful, or if the app is discontinued.
+            Access to the app or certain features may be suspended or terminated if
+            these terms are violated, if continued operation becomes unlawful or
+            unsafe, or if the app is discontinued.
           </p>
 
           <h3>8. Disclaimer of warranties</h3>
           <p>
-            To the maximum extent permitted by law, sobree is provided on an
-            &quot;as is&quot; and &quot;as available&quot; basis without warranties of any
-            kind, express or implied.
+            To the maximum extent permitted by law, Sobree is provided on an
+            &quot;as is&quot; and &quot;as available&quot; basis without warranties of
+            any kind, whether express or implied.
           </p>
 
           <h3>9. Limitation of liability</h3>
           <p>
-            To the maximum extent permitted by law, the developer will not be liable
-            for any indirect, incidental, special, consequential, or punitive damages,
-            or for any loss of data, profits, goodwill, or business interruption
-            arising from or related to use of the app.
+            To the maximum extent permitted by law, Ahmet Atar will not be liable for
+            indirect, incidental, special, consequential, or punitive damages, or for
+            any loss of data, profits, goodwill, or business interruption arising out
+            of or related to use of the app.
           </p>
 
           <h3>10. Governing law</h3>
           <p>
-            These terms are governed by the laws of the developer&apos;s country or state
-            of residence, excluding conflict-of-law rules, unless local consumer law
-            requires otherwise.
+            These terms are governed by the laws applicable to the developer&apos;s place
+            of residence, excluding conflict-of-law principles, unless mandatory local
+            consumer law requires otherwise.
           </p>
 
-          <h3>11. App Store terms</h3>
+          <h3>11. Platform terms</h3>
           <p>
-            If you obtained the app through Apple, your use is also subject to
-            applicable Apple terms. If you do not provide a custom EULA in App Store
-            Connect, Apple&apos;s standard Licensed Application End User License Agreement
-            may also apply.
+            If Sobree is obtained through Apple platforms, use of the app is also
+            subject to any applicable Apple terms and conditions.
           </p>
         </section>
       </main>
 
       <aside class="aside">
-        <section class="panel">
-          <h2>Publisher details</h2>
-          <div class="mini-list">
-            <div class="mini-item">
+        <section class="glass profile-card">
+          <h2>Publisher information</h2>
+          <div class="profile-list">
+            <div class="profile-item">
               <strong>App</strong>
-              sobree
+              <span>Sobree - Sobriety Tracker</span>
             </div>
-            <div class="mini-item">
-              <strong>Developer / Company</strong>
-              Replace with your legal name or company name
+            <div class="profile-item">
+              <strong>Developer</strong>
+              <span>Ahmet Atar</span>
             </div>
-            <div class="mini-item">
+            <div class="profile-item">
               <strong>Contact email</strong>
-              Replace with your support or privacy email
-            </div>
-            <div class="mini-item">
-              <strong>Website</strong>
-              Replace with your production domain or GitHub Pages URL
+              <a href="mailto:ahmetatar@outlook.com">ahmetatar@outlook.com</a>
             </div>
           </div>
         </section>
 
-        <section class="panel">
-          <h2>Recommended App Store mapping</h2>
-          <div class="mini-list">
-            <div class="mini-item">
-              <strong>Privacy Policy URL</strong>
-              Point this to <code>/legal.html#privacy</code> or the full page URL.
-            </div>
-            <div class="mini-item">
-              <strong>User Privacy Choices URL</strong>
-              Optional. Use the same page or a dedicated support page if you offer deletion/contact workflows.
-            </div>
-            <div class="mini-item">
-              <strong>Custom EULA</strong>
-              Optional. If needed, copy a plain-text version into App Store Connect.
-            </div>
+        <section class="glass side-card">
+          <h2>User contact</h2>
+          <div class="notice">
+            Questions about privacy, data handling, support, or these terms can be
+            sent to <a href="mailto:ahmetatar@outlook.com">ahmetatar@outlook.com</a>.
           </div>
         </section>
       </aside>
     </div>
 
     <footer id="contact">
-      <strong>Contact</strong><br>
-      For privacy, legal, or support inquiries, contact:
-      <a href="mailto:replace-with-your-email@example.com">replace-with-your-email@example.com</a>
-      <br><br>
-      Replace all placeholder values before publishing this page.
+      <strong>Contact</strong>
+      For support, privacy-related requests, or legal inquiries regarding Sobree -
+      Sobriety Tracker, contact Ahmet Atar at
+      <a href="mailto:ahmetatar@outlook.com">ahmetatar@outlook.com</a>.
     </footer>
   </div>
 </body>
